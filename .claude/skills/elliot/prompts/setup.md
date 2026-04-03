@@ -1,13 +1,13 @@
 # Setup Flow
 
 Guide the user through building their financial profile. This creates two files:
-`~/.finance/profile.md` and `~/.finance/summary.md`.
+`.finance/profile.md` and `.finance/summary.md`.
 
 ## Step 1: Gather Data
 
 Ask the user how they'd like to provide their financial data:
 
-1. **PDF statements** — Ask them to place PDF files in `~/.finance/raw/statements/`
+1. **PDF statements** — Ask them to place PDF files in `.finance/raw/statements/`
    then tell you. Read the PDFs and extract financial data.
 2. **Describe it** — Have a conversation where they tell you about their finances.
 3. **Both** — Read statements AND fill gaps through conversation.
@@ -62,11 +62,11 @@ Ask about:
 
 ### profile.md
 
-Write `~/.finance/profile.md` using the template from [[templates/profile.md]].
+Write `.finance/profile.md` using the template from [[templates/profile.md]].
 
 ### summary.md
 
-Write `~/.finance/summary.md` using the template from [[templates/summary.md]].
+Write `.finance/summary.md` using the template from [[templates/summary.md]].
 
 **CRITICAL requirements for summary.md:**
 - Always include BOTH gross and net income
@@ -80,5 +80,5 @@ Write `~/.finance/summary.md` using the template from [[templates/summary.md]].
 Show the user a summary of what was generated. Ask them to review and correct
 anything that's wrong. Update the files if they provide corrections.
 
-If `~/.finance/summary.md` already exists, ask the user if they want to update
+If `.finance/summary.md` already exists, ask the user if they want to update
 it or start fresh.

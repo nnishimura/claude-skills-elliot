@@ -4,15 +4,15 @@ Help the user review their progress and update their financial picture.
 
 ## Prerequisites
 
-Read `~/.finance/summary.md`, `~/.finance/profile.md`, and all files in
-`~/.finance/goals/`. If summary is missing, redirect to `/finance setup`.
+Read `.finance/summary.md`, `.finance/profile.md`, and all files in
+`.finance/goals/`. If summary is missing, redirect to `/elliot setup`.
 
 ## Check-in Process
 
 ### 1. Gather Updates
 
 Ask the user what's changed since last check-in. Accept input via:
-- New PDF statements (placed in `~/.finance/raw/statements/`)
+- New PDF statements (placed in `.finance/raw/statements/`)
 - Freeform description ("I got a raise", "we spent more this month", etc.)
 - Specific numbers ("savings is now $35k, checking is $8k")
 
@@ -39,7 +39,7 @@ For each active goal:
 
 ### 4. Generate Check-in Snapshot
 
-Write `~/.finance/check-ins/YYYY-MM.md` with:
+Write `.finance/check-ins/YYYY-MM.md` with:
 - Date
 - Summary of changes
 - Goal progress (actual vs expected)
@@ -49,7 +49,7 @@ Write `~/.finance/check-ins/YYYY-MM.md` with:
 ### 5. Update Goal Files
 
 If progress data changes the outlook, update the relevant
-`~/.finance/goals/*.md` files with revised projections.
+`.finance/goals/*.md` files with revised projections.
 
 ### 6. Proactive Insights
 

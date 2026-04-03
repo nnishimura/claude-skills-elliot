@@ -4,10 +4,10 @@ Help the user create a concrete financial plan for a life goal.
 
 ## Prerequisites
 
-Read `~/.finance/summary.md` and `~/.finance/profile.md`. If either is missing,
-tell the user to run `/finance setup` first.
+Read `.finance/summary.md` and `.finance/profile.md`. If either is missing,
+tell the user to run `/elliot setup` first.
 
-Also read any existing goals: glob `~/.finance/goals/*.md` and read them to
+Also read any existing goals: glob `.finance/goals/*.md` and read them to
 understand what plans already exist.
 
 ## Planning Process
@@ -47,7 +47,7 @@ Explain WHY clearly.
 
 ### 4. Generate the Plan
 
-Write a goal file to `~/.finance/goals/<goal-name>.md` using the template from
+Write a goal file to `.finance/goals/<goal-name>.md` using the template from
 [[templates/goal.md]].
 
 The plan must include:

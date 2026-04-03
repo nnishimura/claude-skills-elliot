@@ -4,8 +4,8 @@ Answer the user's financial question grounded in their actual data.
 
 ## Prerequisites
 
-Read `~/.finance/summary.md`, `~/.finance/profile.md`, and all files in
-`~/.finance/goals/`. Proceed even if some files are missing, but note what
+Read `.finance/summary.md`, `.finance/profile.md`, and all files in
+`.finance/goals/`. Proceed even if some files are missing, but note what
 context you're lacking.
 
 ## Guidelines
