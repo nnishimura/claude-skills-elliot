@@ -1,1 +1,2 @@
-# claude-personal-financial-advisor-skills
+# claude-skills-elliot
+

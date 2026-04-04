@@ -41,6 +41,15 @@ For each active goal:
 - Calculate if on track, ahead, or behind
 - Project new timeline if pace has changed
 
+**Investment growth tracking**: If the user has an investment portfolio:
+- Compare current investment balances to previous check-in
+- Calculate actual growth vs estimated growth rate
+- If actual growth deviates significantly from estimated rate, note it and consider
+  adjusting the estimated annual return
+- Show investment growth as a separate line item: "Your investments grew $X this
+  period (Y% annualized vs Z% estimated)"
+- Re-project goal timelines using updated investment values
+
 ### 4. Generate Check-in Snapshot
 
 Write `.finance/check-ins/YYYY-MM.md` with:

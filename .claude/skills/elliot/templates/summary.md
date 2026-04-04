@@ -47,6 +47,28 @@
 - Other: $[X]
 - **Total assets: $[X]**
 
+## Investment Portfolio
+<!-- If you have investments (401k, IRA, brokerage, etc.), describe your portfolio.
+     Leave [X] for anything unknown — Elliot will help estimate. -->
+
+### Allocation
+- Stocks/Equities: [X]%
+- Bonds/Fixed Income: [X]%
+- Cash/Money Market: [X]%
+- Real Estate (REITs): [X]%
+- Other: [X]%
+
+### Portfolio Details
+- Investment style: [passive index funds / active / mixed / robo-advisor / self-directed]
+- Key holdings: [e.g., "S&P 500 index, target-date 2055 fund, individual stocks"]
+- Monthly contributions: $[X] ([which accounts])
+- Employer match: [X]% up to [X]% of salary
+
+### Estimated Annual Growth Rate
+<!-- Elliot will estimate this based on your allocation. Leave as-is. -->
+- Estimated return: [X]%
+- Basis: [how it was estimated]
+
 ## Debts
 <!-- One row per debt. Delete example row and add yours. -->
 | Type | Balance | Rate | Monthly Payment |

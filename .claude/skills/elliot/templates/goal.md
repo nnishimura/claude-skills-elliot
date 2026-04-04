@@ -19,6 +19,8 @@
 
 ## Key Assumptions
 - [list each assumption]
+- Investment growth rate: [X]% annual ([basis — e.g., "based on 80% equity allocation"])
+- Projected investment value at target date: $[X] (from current $[X])
 
 ## Milestones
 | Target Date | Milestone | Amount |

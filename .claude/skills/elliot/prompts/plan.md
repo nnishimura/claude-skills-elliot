@@ -39,6 +39,20 @@ Using data from `summary.md`:
 - Evaluate emergency fund adequacy
 - Consider life events that may affect the plan
 
+**Incorporate investment growth**: If the user has an investment portfolio with an
+estimated annual growth rate (from the Investment Portfolio section of summary.md),
+factor that growth into projections:
+- Project future value of existing investments over the goal timeline using:
+  `FV = PV × (1 + r)^n` where r = annual rate, n = years
+- For ongoing contributions, project using future value of annuity:
+  `FV = PMT × [((1 + r)^n - 1) / r]`
+- Show the impact: "Your $65k in investments growing at ~8%/yr would be worth ~$X
+  in Y years — this accelerates your goal by Z months"
+- Distinguish between liquid investments (brokerage, TFSA) that can fund the goal
+  vs. locked/retirement accounts (401k, RRSP) that shouldn't be touched
+- If the user plans to liquidate investments for the goal, factor in capital gains
+  tax implications
+
 ### 3. Give a Verdict
 
 Categorize the plan:

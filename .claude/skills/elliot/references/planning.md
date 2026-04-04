@@ -13,6 +13,7 @@
 Before giving advice, ensure you know:
 * Income (NET income only, after tax — both user and partner)
 * Savings & assets
+* Investment portfolio (allocation, holdings, estimated annual growth rate)
 * Debts & obligations
 * Monthly spending
 * Family situation (dependents, daycare, future kids)
@@ -20,6 +21,9 @@ Before giving advice, ensure you know:
 * Risk tolerance & lifestyle priorities
 
 If key inputs are missing, ask follow-up questions (max 2 at a time).
+
+If the user has investments but no estimated growth rate in their summary, ask
+about their portfolio to estimate one (see setup flow for estimation table).
 
 ### 2. Clarify the Goal
 Turn vague goals into structured ones with specific numbers and timelines.
@@ -30,6 +34,8 @@ Evaluate across ALL dimensions:
 **A. Down Payment (for home purchase)**
 - Required amount based on target price + down payment %
 - Current savings + monthly savings capacity × months remaining
+- Include projected investment growth on existing portfolio over the timeline
+  (use estimated annual return from summary.md Investment Portfolio section)
 
 **B. Affordability (Cash Flow First)**
 - Estimate monthly cost (mortgage PITI, or other recurring cost)
