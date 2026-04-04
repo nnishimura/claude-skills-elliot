@@ -4,8 +4,12 @@ Help the user review their progress and update their financial picture.
 
 ## Prerequisites
 
-Read `.finance/summary.md`, `.finance/profile.md`, and all files in
-`.finance/goals/`. If summary is missing, redirect to `/elliot setup`.
+Load the user's financial context (see SKILL.md Context Loading):
+1. Try reading `.finance/summary.md`, `.finance/profile.md`, and all files in
+   `.finance/goals/`
+2. If files don't exist, check for financial data shared earlier in the
+   conversation (Artifacts or pasted text)
+3. If no financial context is found, redirect to `/elliot setup`
 
 ## Check-in Process
 
@@ -57,3 +61,8 @@ Offer 1-2 actionable insights:
 - Optimization opportunities
 - Risk warnings
 - Positive reinforcement when on track
+
+### 7. Output updated Artifacts
+
+Output the updated `summary.md` as an Artifact titled **"Financial Summary"**
+so the latest data persists in the conversation.

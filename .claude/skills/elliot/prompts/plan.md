@@ -4,8 +4,11 @@ Help the user create a concrete financial plan for a life goal.
 
 ## Prerequisites
 
-Read `.finance/summary.md` and `.finance/profile.md`. If either is missing,
-tell the user to run `/elliot setup` first.
+Load the user's financial context (see SKILL.md Context Loading):
+1. Try reading `.finance/summary.md` and `.finance/profile.md`
+2. If files don't exist, check for financial data shared earlier in the
+   conversation (Artifacts or pasted text)
+3. If no financial context is found, tell the user to run `/elliot setup` first
 
 Also read any existing goals: glob `.finance/goals/*.md` and read them to
 understand what plans already exist.
@@ -68,3 +71,8 @@ Show trade-offs clearly.
 
 Present the plan to the user. Ask if they want to adjust anything.
 Update the goal file with any changes.
+
+### 7. Output as Artifact
+
+Output the goal plan as an Artifact titled **"Goal: [name]"** so it persists
+in the conversation.

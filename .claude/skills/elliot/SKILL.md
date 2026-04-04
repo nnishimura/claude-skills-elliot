@@ -21,19 +21,37 @@ Route based on the first argument:
 - **advice**: Read [[prompts/advice.md]] and follow the advice flow
 - **no argument or other**: Determine intent from context, or ask the user
 
-## Data Directory
+## Data Storage
 
-All user data lives in `.finance/` (project root). If the directory doesn't exist, create it
-with: `mkdir -p .finance/goals .finance/check-ins .finance/raw/statements`
+Elliot supports two environments:
+
+### Claude Code (CLI / VS Code)
+User data lives in `.finance/` (project root). If the directory doesn't exist,
+create it with: `mkdir -p .finance/goals .finance/check-ins .finance/raw/statements`
+
+### Claude Desktop App
+User data is stored as **Artifacts** in the conversation or Project. When writing
+or updating financial data, ALWAYS output the content as a markdown Artifact so
+it persists in the conversation.
 
 ## Context Loading
 
-Before responding, ALWAYS check if these files exist and read them:
-- `.finance/summary.md` — financial summary (primary context)
-- `.finance/profile.md` — personal profile
+Before responding, load the user's financial data from whichever source is available:
 
-If they exist, load them as context. If they don't exist and the command is not
-`setup`, tell the user to run `/elliot setup` first.
+1. **Try local files first**: Read `.finance/summary.md` and `.finance/profile.md`
+2. **If files don't exist**: Check if the user has shared their financial summary
+   or profile earlier in this conversation (e.g., as an Artifact or pasted text)
+3. **If neither exists** and the command is not `setup`: tell the user to run
+   `/elliot setup` first
+
+## Artifact Output
+
+After writing or updating any financial data file, ALWAYS also output the content
+as a markdown Artifact. This ensures data persists in Claude desktop conversations.
+Use these Artifact titles:
+- **"Financial Summary"** for summary.md content
+- **"Personal Profile"** for profile.md content
+- **"Goal: [name]"** for goal files
 
 ## Core Principles
 

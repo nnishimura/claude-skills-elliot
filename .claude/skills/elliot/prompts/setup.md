@@ -1,84 +1,95 @@
 # Setup Flow
 
-Guide the user through building their financial profile. This creates two files:
-`.finance/profile.md` and `.finance/summary.md`.
+Build the user's financial profile using template files they fill in, with PDF
+statements to fill any gaps.
 
-## Step 1: Gather Data
+## Step 1: Create template files
 
-Ask the user how they'd like to provide their financial data:
+Create the `.finance/` directory structure:
+```
+mkdir -p .finance/goals .finance/check-ins .finance/raw/statements
+```
 
-1. **PDF statements** — Ask them to place PDF files in `.finance/raw/statements/`
-   then tell you. Read the PDFs and extract financial data.
-2. **Describe it** — Have a conversation where they tell you about their finances.
-3. **Both** — Read statements AND fill gaps through conversation.
+Copy the templates to create the user's files:
+- Copy [[templates/summary.md]] → `.finance/summary.md`
+- Copy [[templates/profile.md]] → `.finance/profile.md`
 
-## Step 2: Extract & Clarify
+If `.finance/summary.md` already exists, ask the user if they want to update it
+or start fresh before overwriting.
 
-From whatever input the user provides, extract:
+Tell the user:
+> I've created two files for you to fill in:
+> - `.finance/summary.md` — your financial data (income, expenses, assets, debts)
+> - `.finance/profile.md` — personal info (household, employment, risk tolerance)
+>
+> Open them in your editor, fill in what you know, and leave `[X]` for anything
+> you're unsure about. Let me know when you're done.
 
-**Income** (CRITICAL: always separate gross vs net, user vs partner)
-- Gross annual income (user)
-- Net monthly income (user) — after tax
-- Income source and type (W-2, 1099, etc.)
-- Pay frequency
-- Partner/spouse income (same breakdown, if applicable)
+## Step 2: Wait for user
 
-**Expenses** (monthly)
-- Housing (rent/mortgage)
-- Utilities
-- Groceries
-- Transportation
-- Childcare/education
-- Insurance
-- Subscriptions
-- Discretionary
-- Other
+The user will edit the files and tell you when they're ready. Do NOT ask
+questions yet — let them fill in what they can first.
 
-**Assets**
-- Checking accounts (with balances)
-- Savings accounts
-- Retirement accounts (401k, IRA, etc.)
-- Investment/brokerage accounts
-- Other assets
+## Step 3: Read and validate
 
-**Debts**
-- Type, balance, interest rate, monthly payment for each
+Read both `.finance/summary.md` and `.finance/profile.md`. Check for:
 
-Ask clarifying questions for anything unclear or missing. Ask at most 2–3
-questions at a time. If the user doesn't know exact numbers, make reasonable
-estimates and clearly label them as estimates.
+- Fields still containing `[X]` or placeholder text
+- Obvious inconsistencies (expenses > income, missing totals, etc.)
+- Missing critical data (net income is essential for all planning)
 
-## Step 3: Personal Profile
+Compile a list of **missing or unclear fields**.
 
-Ask about:
-- Employment status
-- Household structure (partner, kids, dependents)
-- Location (city/state — for cost of living context)
-- Recent or upcoming life events (baby, mat leave, job change, marriage, move)
-- Risk tolerance (conservative / moderate / aggressive — or ask a few questions
-  to assess)
+## Step 4: Fill gaps with PDF statements (if needed)
 
-## Step 4: Generate Files
+If important data is missing, ask the user:
+> Some fields are still missing. You can:
+> 1. **Upload PDF statements** — place them in `.finance/raw/statements/` and I'll
+>    extract the data
+> 2. **Tell me** — describe the missing info conversationally
+> 3. **Skip** — I'll work with what we have (some features may be limited)
 
-### profile.md
+If the user provides PDFs:
+- Read each PDF in `.finance/raw/statements/`
+- Extract: account balances, income deposits, recurring expenses, debt payments
+- Update `.finance/summary.md` with extracted data
+- Show the user what was extracted so they can verify
 
-Write `.finance/profile.md` using the template from [[templates/profile.md]].
+If the user describes it conversationally:
+- Update the relevant fields in `.finance/summary.md` and/or `.finance/profile.md`
 
-### summary.md
+## Step 5: Calculate metrics and finalize
 
-Write `.finance/summary.md` using the template from [[templates/summary.md]].
+Once data is sufficient, calculate and fill in the **Key Metrics** section:
+- Monthly surplus = household net monthly income - total monthly expenses
+- Monthly savings rate = (surplus / net income) × 100
+- Emergency fund = (checking + savings) / total monthly expenses
+- Net worth = total assets - total debt
+- Debt-to-income ratio = (total monthly debt payments / gross monthly income) × 100
 
-**CRITICAL requirements for summary.md:**
-- Always include BOTH gross and net income
-- Always separate user vs partner income
-- Calculate key metrics: savings rate, emergency fund months, net worth, DTI
-- Note the data sources and any estimates/assumptions
-- Include a "Last updated" date
+Update the "Last updated" date and "Sources" field.
 
-## Step 5: Review
+## Step 6: Final review
 
-Show the user a summary of what was generated. Ask them to review and correct
-anything that's wrong. Update the files if they provide corrections.
+Show the user a concise summary of their financial picture:
+- Income, expenses, surplus
+- Assets, debts, net worth
+- Key metrics
 
-If `.finance/summary.md` already exists, ask the user if they want to update
-it or start fresh.
+Ask if anything needs correcting. Apply any corrections to the files.
+
+## Step 7: Output as Artifacts
+
+After finalizing, output the complete content of both files as **Artifacts**:
+- Output `summary.md` content as an Artifact titled **"Financial Summary"**
+- Output `profile.md` content as an Artifact titled **"Personal Profile"**
+
+This ensures the data persists in the conversation for Claude desktop app users
+and is visible for review in any environment.
+
+## Important rules
+- ALWAYS separate gross vs net income
+- ALWAYS separate user vs partner income
+- Label any estimated values in the "Estimates" field at the top
+- If net income is unknown but gross is provided, estimate net as ~70% of gross
+  and clearly mark it as an estimate
