@@ -5,11 +5,11 @@ Your AI Financial Planner
 Elliot is a personal financial planner (CFP-level) that runs as a **Claude skill**.
 
 - **Local-first** — Your financial data stays on your machine as local markdown files.
-- **Memory across sessions** — Structured files give Elliot persistent context every time you talk.
+- **Memory across sessions** — Generated financial summary markdown files give Elliot persistent context every time you talk.
 
 ## Commands
 
-### `/elliot setup` — Build Your Financial Profile
+### `/elliot setup`
 
 Interactive onboarding that creates your financial profile. Provide data through:
 
@@ -20,7 +20,7 @@ Generates two files:
 - `summary.md` — Your complete financial picture (income, expenses, assets, debts, key metrics)
 - `profile.md` — Personal context (household, employment, risk tolerance, life events)
 
-### `/elliot plan` — Goal Planning
+### `/elliot plan`
 
 Turn a life goal into a concrete financial plan. Elliot will:
 
@@ -32,7 +32,7 @@ Turn a life goal into a concrete financial plan. Elliot will:
 
 Output: an actionable goal plan with milestones, assumptions, risks, and clear next steps.
 
-### `/elliot check` — Progress Check-in
+### `/elliot check`
 
 Provide updated data (new statements, balances, income changes) and get:
 
@@ -42,7 +42,7 @@ Provide updated data (new statements, balances, income changes) and get:
 - Alerts if you're off track with adjusted timelines
 - Monthly snapshot saved to `check-ins/`
 
-### `/elliot advice` — On-Demand Guidance
+### `/elliot advice`
 
 Ask any financial question grounded in your actual data:
 
