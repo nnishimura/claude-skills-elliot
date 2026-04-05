@@ -1,80 +1,114 @@
 # Setup Flow
 
-Build the user's financial profile using template files they fill in, with PDF
-statements to fill any gaps.
+Build the user's financial profile through guided onboarding — never ask them
+to manually fill in template files.
 
-## Step 1: Create template files
+## Step 1: Create directory structure
 
 Create the `.finance/` directory structure:
 ```
 mkdir -p .finance/goals .finance/raw/statements
 ```
 
-Copy the templates to create the user's files:
-- Copy [[templates/summary.md]] → `.finance/summary.md`
-- Copy [[templates/profile.md]] → `.finance/profile.md`
-
 If `.finance/summary.md` already exists, ask the user if they want to update it
 or start fresh before overwriting.
 
-Tell the user:
-> I've created two files for you to fill in:
-> - `.finance/summary.md` — your financial data (income, expenses, assets, debts)
-> - `.finance/profile.md` — personal info (household, employment, risk tolerance)
+## Step 2: Choose onboarding method
+
+Ask the user how they'd like to get started:
+
+> **How would you like to set up your financial profile?**
 >
-> Open them in your editor, fill in what you know, and leave `[X]` for anything
-> you're unsure about. Let me know when you're done.
+> 1. **Upload PDF statements** — Download statements from your bank, brokerage,
+>    credit card, and payroll accounts (account summaries, transaction history,
+>    salary/pay stubs, etc.), place them in `.finance/raw/statements/`, and I'll
+>    extract everything automatically.
+> 2. **Answer onboarding questions** — I'll walk you through a short Q&A to
+>    build your profile from scratch.
+>
+> You can also combine both — upload what you have and I'll ask about the rest.
 
-## Step 2: Wait for user
+## Step 3A: PDF Statement Path
 
-The user will edit the files and tell you when they're ready. Do NOT ask
-questions yet — let them fill in what they can first.
+If the user chooses to upload statements:
 
-## Step 3: Read and validate
+1. Tell them what's most useful to upload:
+   - Bank account statements (checking & savings — last 1-3 months)
+   - Credit card statements (last 1-3 months)
+   - Brokerage / retirement account summaries (latest)
+   - Pay stub or salary statement (most recent)
+   - Mortgage or loan statements (if applicable)
 
-Read both `.finance/summary.md` and `.finance/profile.md`. Check for:
+2. Ask them to place the files in `.finance/raw/statements/` and let you know
+   when they're ready.
 
-- Fields still containing `[X]` or placeholder text
-- Obvious inconsistencies (expenses > income, missing totals, etc.)
-- Missing critical data (net income is essential for all planning)
+3. Read each PDF in `.finance/raw/statements/`. Extract:
+   - **Income**: salary/pay amounts, frequency, gross vs net, employer name
+   - **Expenses**: recurring charges, categories of spending, rent/mortgage
+   - **Assets**: account balances (checking, savings, investment, retirement)
+   - **Debts**: loan balances, interest rates, minimum payments
+   - **Investment details**: holdings, allocation, contributions, employer match
 
-Compile a list of **missing or unclear fields**.
+4. Show the user a summary of what was extracted and ask them to confirm or
+   correct anything. Fill any remaining gaps by asking targeted questions (see
+   Step 3B question bank — only ask what the PDFs didn't cover).
 
-## Step 4: Fill gaps with PDF statements (if needed)
+## Step 3B: Conversational Onboarding Path
 
-If important data is missing, ask the user:
-> Some fields are still missing. You can:
-> 1. **Upload PDF statements** — place them in `.finance/raw/statements/` and I'll
->    extract the data
-> 2. **Tell me** — describe the missing info conversationally
-> 3. **Skip** — I'll work with what we have (some features may be limited)
+If the user chooses Q&A, walk through these topics in order. Group related
+questions together — don't ask one question at a time. Aim for 3-4 rounds of
+questions max.
 
-If the user provides PDFs:
-- Read each PDF in `.finance/raw/statements/`
-- Extract: account balances, income deposits, recurring expenses, debt payments
-- Update `.finance/summary.md` with extracted data
-- Show the user what was extracted so they can verify
+### Round 1: Basics & Income
+- Where do you live? (city, state/province)
+- Household status: single, married, or partnered? Any dependents?
+- Employment: job title, employer, how long? Self-employed or W-2/salaried?
+- Gross annual salary? Net monthly take-home pay? Pay frequency?
+- Does a partner/spouse contribute income? If so, same details.
 
-If the user describes it conversationally:
-- Update the relevant fields in `.finance/summary.md` and/or `.finance/profile.md`
+### Round 2: Expenses & Lifestyle
+- Monthly housing cost? (rent or mortgage — include amount and type)
+- Estimate your total monthly spending across: utilities, groceries,
+  transportation, childcare/education, insurance, subscriptions, dining out
+  & discretionary. (They can give a lump sum or break it down — be flexible.)
+- Any other recurring monthly expenses?
 
-## Step 5: Investment portfolio discovery
+### Round 3: Assets, Debts & Investments
+- Bank accounts: checking and savings balances (approximate is fine)
+- Retirement accounts: 401(k), IRA, RRSP, TFSA, etc. — balances?
+- Brokerage or other investment accounts? Balances?
+- Any debts? For each: type (student loan, car, credit card, mortgage, etc.),
+  balance, interest rate, monthly payment.
+- Do you have an emergency fund? How many months of expenses does it cover?
 
-If the user has any investment accounts (401(k), IRA, RRSP, TFSA, brokerage, etc.
-with non-zero balances), ask about their portfolio:
+### Round 4: Investments & Risk (if they have investment accounts)
+- What's in your investment accounts? (index funds, target-date funds, stocks,
+  bonds, etc.)
+- Rough allocation? (e.g., "mostly stocks", "60/40", "all S&P 500 index")
+- Monthly contributions? Does your employer match?
+- Risk tolerance: conservative, moderate, or aggressive?
+- Any upcoming life events that will affect your finances? (baby, job change,
+  big purchase, etc.)
 
-> I see you have investment accounts. To project how your money will grow, I'd
-> like to understand your portfolio:
-> 1. **What's in them?** (e.g., index funds, target-date funds, individual stocks,
->    bonds, GICs, etc.)
-> 2. **What's the rough allocation?** (e.g., "mostly stocks", "60/40 stocks/bonds",
->    "all in S&P 500 index")
-> 3. **Do you contribute regularly?** How much per month, and does your employer match?
+**Adapt as you go**: If a previous answer makes a question irrelevant, skip it.
+If an answer is vague, ask one clarifying follow-up. Don't over-interrogate.
 
-Fill in the **Investment Portfolio** section of `summary.md` with what the user
-provides.
+## Step 4: Build the profile files
 
-Then **estimate the annual growth rate** based on their allocation:
+Using the collected data (from PDFs, Q&A, or both), populate the template
+files:
+
+- Read [[templates/summary.md]] and [[templates/profile.md]] for the structure
+- Create `.finance/summary.md` and `.finance/profile.md` filled in with real
+  values — no `[X]` placeholders should remain for data the user provided
+- For anything truly unknown, mark it as "Unknown" and note it in the Estimates
+  field
+
+## Step 5: Investment portfolio analysis
+
+If the user has investment accounts with non-zero balances:
+
+**Estimate the annual growth rate** based on their allocation:
 
 | Portfolio Type | Estimated Annual Return |
 |----------------|------------------------|
@@ -84,21 +118,20 @@ Then **estimate the annual growth rate** based on their allocation:
 | Conservative (< 40% stocks) | 3-5% |
 | Cash/GICs/savings only | 1-3% |
 
-Write the estimated return and basis into the **Estimated Annual Growth Rate**
-subsection. Be transparent: "Based on your ~80% equity allocation, I'm estimating
-~8% annual growth. This is a long-term average — actual returns will vary year
-to year."
+Fill in the **Investment Portfolio** section and **Estimated Annual Growth
+Rate** subsection. Be transparent: "Based on your ~80% equity allocation, I'm
+estimating ~8% annual growth. This is a long-term average — actual returns will
+vary year to year."
 
 If the user doesn't know their allocation, ask what platform/funds they use and
-look up typical allocations for those products (e.g., target-date funds have a
-known glide path).
+look up typical allocations for those products.
 
 If the user has NO investments, skip this step and note "N/A" in the portfolio
 section.
 
 ## Step 6: Calculate metrics and finalize
 
-Once data is sufficient, calculate and fill in the **Key Metrics** section:
+Calculate and fill in the **Key Metrics** section:
 - Monthly surplus = household net monthly income - total monthly expenses
 - Monthly savings rate = (surplus / net income) × 100
 - Emergency fund = (checking + savings) / total monthly expenses
@@ -131,3 +164,5 @@ and is visible for review in any environment.
 - Label any estimated values in the "Estimates" field at the top
 - If net income is unknown but gross is provided, estimate net as ~70% of gross
   and clearly mark it as an estimate
+- Never ask the user to manually edit template files — Elliot always writes them
+- Be conversational and encouraging, not clinical — this is sensitive data
