@@ -86,7 +86,17 @@ Show trade-offs clearly.
 Present the plan to the user. Ask if they want to adjust anything.
 Update the goal file with any changes.
 
-### 7. Output as Artifact
+### 7. Output Format
 
-Output the goal plan as an Artifact titled **"Goal: [name]"** so it persists
-in the conversation.
+**If the user is on Claude Desktop App (claude.ai):** Output the goal plan as
+an Artifact (type: `text/html`) titled **"Goal: [name]"**. Build a clean,
+visually polished single-page HTML dashboard that includes:
+- A header with the goal name and verdict badge (SAFE / STRETCH / NOT RECOMMENDED)
+- A summary card showing target amount, timeline, and monthly savings needed
+- A progress/milestone timeline visualization
+- Sections for assumptions, action items, risks, and scenarios
+- Use a modern, minimal design with CSS (no external dependencies). Use a
+  cohesive color palette, card-based layout, and clear typography.
+
+**If the user is on Claude Code (CLI/IDE):** Output the plan as formatted
+markdown directly in the conversation. Do not attempt to create an artifact.

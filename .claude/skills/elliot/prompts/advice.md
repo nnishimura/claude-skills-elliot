@@ -30,6 +30,21 @@ Load the user's financial context (see SKILL.md Context Loading):
 
 ## Response Format
 
+**If the user is on Claude Desktop App (claude.ai):** Output the advice as
+an Artifact (type: `text/html`) titled **"Advice: [topic]"**. Build a clean,
+visually polished single-page HTML dashboard that includes:
+- A header with the topic and a verdict badge (clear recommendation)
+- A summary card with the direct answer and key numbers from their data
+- A supporting calculations section showing the math behind the recommendation
+  (income vs. expense impact, goal timeline effects, rate comparisons, etc.)
+- A trade-offs section quantifying what they'd gain vs. give up
+- An action items checklist with concrete next steps
+- Use a modern, minimal design with CSS (no external dependencies). Use a
+  cohesive color palette, card-based layout, and clear typography.
+
+**If the user is on Claude Code (CLI/IDE):** Output the advice as formatted
+markdown directly in the conversation. Do not attempt to create an artifact.
+Structure it as:
 1. **Direct answer** (don't bury the recommendation)
 2. **Why** (brief reasoning with numbers from their data)
 3. **Trade-offs** (what they'd give up)
