@@ -5,12 +5,12 @@ to manually fill in template files.
 
 ## Step 1: Create directory structure
 
-Create the `.finance/` directory structure:
+Create the `memory/` directory structure:
 ```
-mkdir -p .finance/goals .finance/raw/statements
+mkdir -p memory/goals memory/raw/statements
 ```
 
-If `.finance/summary.md` already exists, ask the user if they want to update it
+If `memory/summary.md` already exists, ask the user if they want to update it
 or start fresh before overwriting.
 
 ## Step 2: Choose onboarding method
@@ -21,7 +21,7 @@ Ask the user how they'd like to get started:
 >
 > 1. **Upload PDF statements** — Download statements from your bank, brokerage,
 >    credit card, and payroll accounts (account summaries, transaction history,
->    salary/pay stubs, etc.), place them in `.finance/raw/statements/`, and I'll
+>    salary/pay stubs, etc.), place them in `memory/raw/statements/`, and I'll
 >    extract everything automatically.
 > 2. **Answer onboarding questions** — I'll walk you through a short Q&A to
 >    build your profile from scratch.
@@ -39,10 +39,10 @@ If the user chooses to upload statements:
    - Pay stub or salary statement (most recent)
    - Mortgage or loan statements (if applicable)
 
-2. Ask them to place the files in `.finance/raw/statements/` and let you know
+2. Ask them to place the files in `memory/raw/statements/` and let you know
    when they're ready.
 
-3. Read each PDF in `.finance/raw/statements/`. Extract:
+3. Read each PDF in `memory/raw/statements/`. Extract:
    - **Income**: salary/pay amounts, frequency, gross vs net, employer name
    - **Expenses**: recurring charges, categories of spending, rent/mortgage
    - **Assets**: account balances (checking, savings, investment, retirement)
@@ -99,7 +99,7 @@ Using the collected data (from PDFs, Q&A, or both), populate the template
 files:
 
 - Read [[templates/summary.md]] and [[templates/profile.md]] for the structure
-- Create `.finance/summary.md` and `.finance/profile.md` filled in with real
+- Create `memory/summary.md` and `memory/profile.md` filled in with real
   values — no `[X]` placeholders should remain for data the user provided
 - For anything truly unknown, mark it as "Unknown" and note it in the Estimates
   field

@@ -45,7 +45,7 @@ Ask any financial question grounded in your actual data:
 All your financial data lives locally as markdown files:
 
 ```
-.finance/
+memory/
 ├── summary.md          # Financial summary (single source of truth)
 ├── profile.md          # Personal info, household, risk tolerance
 ├── goals/

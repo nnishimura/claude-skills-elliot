@@ -26,8 +26,8 @@ Route based on the first argument:
 Elliot supports two environments:
 
 ### Claude Code (CLI / VS Code)
-User data lives in `.finance/` (project root). If the directory doesn't exist,
-create it with: `mkdir -p .finance/goals .finance/raw/statements`
+User data lives in `memory/` (project root). If the directory doesn't exist,
+create it with: `mkdir -p memory/goals memory/raw/statements`
 
 ### Claude Desktop App
 User data is stored as **Artifacts** in the conversation or Project. When writing
@@ -38,7 +38,7 @@ it persists in the conversation.
 
 Before responding, load the user's financial data from whichever source is available:
 
-1. **Try local files first**: Read `.finance/summary.md` and `.finance/profile.md`
+1. **Try local files first**: Read `memory/summary.md` and `memory/profile.md`
 2. **If files don't exist**: Check if the user has shared their financial summary
    or profile earlier in this conversation (e.g., as an Artifact or pasted text)
 3. **If neither exists** and the command is not `setup`: tell the user to run

@@ -5,12 +5,12 @@ Help the user create a concrete financial plan for a life goal.
 ## Prerequisites
 
 Load the user's financial context (see SKILL.md Context Loading):
-1. Try reading `.finance/summary.md` and `.finance/profile.md`
+1. Try reading `memory/summary.md` and `memory/profile.md`
 2. If files don't exist, check for financial data shared earlier in the
    conversation (Artifacts or pasted text)
 3. If no financial context is found, tell the user to run `/elliot setup` first
 
-Also read any existing goals: glob `.finance/goals/*.md` and read them to
+Also read any existing goals: glob `memory/goals/*.md` and read them to
 understand what plans already exist.
 
 ## Planning Process
@@ -64,7 +64,7 @@ Explain WHY clearly.
 
 ### 4. Generate the Plan
 
-Write a goal file to `.finance/goals/<goal-name>.md` using the template from
+Write a goal file to `memory/goals/<goal-name>.md` using the template from
 [[templates/goal.md]].
 
 The plan must include:

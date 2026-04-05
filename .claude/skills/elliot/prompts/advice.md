@@ -5,8 +5,8 @@ Answer the user's financial question grounded in their actual data.
 ## Prerequisites
 
 Load the user's financial context (see SKILL.md Context Loading):
-1. Try reading `.finance/summary.md`, `.finance/profile.md`, and all files in
-   `.finance/goals/`
+1. Try reading `memory/summary.md`, `memory/profile.md`, and all files in
+   `memory/goals/`
 2. If files don't exist, check for financial data shared earlier in the
    conversation (Artifacts or pasted text)
 3. Proceed even if some context is missing, but note what you're lacking
