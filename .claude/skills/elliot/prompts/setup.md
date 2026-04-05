@@ -149,14 +149,28 @@ Show the user a concise summary of their financial picture:
 
 Ask if anything needs correcting. Apply any corrections to the files.
 
-## Step 8: Output as Artifacts
+## Step 8: Output Format
 
-After finalizing, output the complete content of both files as **Artifacts**:
-- Output `summary.md` content as an Artifact titled **"Financial Summary"**
-- Output `profile.md` content as an Artifact titled **"Personal Profile"**
+**If the user is on Claude Desktop App (claude.ai):** Output the final profile
+as a single Artifact (type: `text/html`) titled **"Your Financial Profile"**.
+Build a clean, visually polished single-page HTML dashboard that includes:
+- A header with the user's name (or "Your Financial Profile") and the date
+- An income overview card (gross vs net, household total, pay frequency)
+- An expenses breakdown card (categorized, with total and surplus highlighted)
+- An assets & debts summary card (balances, net worth)
+- An investment portfolio card (allocation, estimated growth rate) — omit if N/A
+- A key metrics section with visual indicators (savings rate, emergency fund
+  coverage in months, debt-to-income ratio, net worth)
+- A personal profile sidebar or section (location, household, employment, risk
+  tolerance, upcoming life events)
+- Use a modern, minimal design with CSS (no external dependencies). Use a
+  cohesive color palette, card-based layout, and clear typography.
 
-This ensures the data persists in the conversation for Claude desktop app users
-and is visible for review in any environment.
+Also persist the data by outputting `summary.md` and `profile.md` as separate
+text Artifacts so the data is available for future commands.
+
+**If the user is on Claude Code (CLI/IDE):** Output the profile as formatted
+markdown directly in the conversation. Do not attempt to create an artifact.
 
 ## Important rules
 - ALWAYS separate gross vs net income
