@@ -45,7 +45,7 @@ Turn a life goal into a concrete financial plan. Elliot will:
 4. Factor in investment growth on your existing portfolio
 5. Deliver a verdict: **SAFE** / **STRETCH** / **NOT RECOMMENDED**
 
-Output: an actionable goal plan with milestones, assumptions, risks, and clear next steps. On Claude Desktop, rendered as a visual HTML dashboard with verdict badge and milestone timeline.
+Output: an actionable goal plan with milestones, assumptions, risks, and clear next steps.
 
 ### `/elliot advice`
 
@@ -55,7 +55,7 @@ Ask any financial question grounded in your actual data:
 - "Should I pay off debt or invest?"
 - "What should I do with a $10k bonus?"
 
-Elliot gives an opinionated recommendation backed by your real numbers — not "it depends." On Claude Desktop, rendered as a visual HTML dashboard with verdict, supporting calculations, trade-offs, and action items.
+Output: recommendation backed by supporting calculations, trade-offs, and action items.
 
 ## How Data is Stored
 
