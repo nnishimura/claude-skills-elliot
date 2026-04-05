@@ -2,18 +2,22 @@
 
 Your AI Financial Planner
 
-Elliot is a personal financial planner (CFP-level) that runs as a **Claude skill**.
+Elliot is a CFP-level financial planner that runs as a **Claude skill** — on both Claude Desktop and Claude Code. Upload your bank statements or answer a few questions, and Elliot builds a complete picture of your finances: income, expenses, assets, debts, investments, and key metrics.
 
-- **Local-first** - Your financial data stays on your machine as local markdown files.
-- **Memory across sessions** - Generated financial summary markdown files give Elliot persistent context every time you talk.
+From there, plan life goals (buying a house, paying off debt, saving for college) with feasibility analysis and milestone tracking, or ask ad-hoc financial questions and get personalized, data-backed answer.
+
+- **Local-first** — Your financial data stays on your machine as markdown files.
+- **Easy onboarding** — Drop your bank statements, pay stubs, and brokerage PDFs and Elliot extracts everything. No manual data entry.
+- **Memory across sessions** — Elliot remembers your financial profile across conversations, so every answer is grounded in your real numbers.
 
 ## Screenshots
 
-<img width="600" alt="Financial Profile Dashboard" src="https://github.com/user-attachments/assets/1b9fa892-295c-47de-9433-4b2cf96949fa" />
+<img width="40%" alt="Financial Profile Dashboard" src="https://github.com/user-attachments/assets/1b9fa892-295c-47de-9433-4b2cf96949fa" />
 
-<img width="600" alt="Goal Plan Dashboard" src="https://github.com/user-attachments/assets/afa92e93-8b42-4e4d-b463-d9b3cdc4e90a" />
+<img width="40%" alt="Advice Dashboard" src="https://github.com/user-attachments/assets/d03e245b-e621-498f-8a29-261d9aaf78e6" />
 
-<img width="600" alt="Advice Dashboard" src="https://github.com/user-attachments/assets/d03e245b-e621-498f-8a29-261d9aaf78e6" />
+<img width="40%" alt="Goal Plan Dashboard" src="https://github.com/user-attachments/assets/afa92e93-8b42-4e4d-b463-d9b3cdc4e90a" />
+
 
 ## Commands
 
@@ -55,7 +59,7 @@ Elliot gives an opinionated recommendation backed by your real numbers — not "
 
 ## How Data is Stored
 
-**Claude Code (CLI/IDE)** — All your financial data lives locally as markdown files. Data persists across sessions and never leaves your machine.
+**Claude Code (CLI/IDE)** — All your financial data lives locally as markdown files. Data persists across sessions.
 
 ```
 memory/
