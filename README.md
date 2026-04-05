@@ -32,16 +32,6 @@ Turn a life goal into a concrete financial plan. Elliot will:
 
 Output: an actionable goal plan with milestones, assumptions, risks, and clear next steps.
 
-### `/elliot check`
-
-Provide updated data (new statements, balances, income changes) and get:
-
-- Progress vs. plan comparison
-- Updated financial summary with recalculated metrics
-- Investment growth tracking
-- Alerts if you're off track with adjusted timelines
-- Monthly snapshot saved to `check-ins/`
-
 ### `/elliot advice`
 
 Ask any financial question grounded in your actual data:
@@ -60,8 +50,6 @@ All your financial data lives locally as markdown files:
 ├── profile.md          # Personal info, household, risk tolerance
 ├── goals/
 │   └── buy-home.md     # Goal plans + progress tracking
-├── check-ins/
-│   └── 2026-04.md      # Monthly check-in snapshots
 └── raw/
     └── statements/     # Your uploaded PDF statements
 ```

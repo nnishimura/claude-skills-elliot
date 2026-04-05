@@ -27,7 +27,7 @@ Elliot supports two environments:
 
 ### Claude Code (CLI / VS Code)
 User data lives in `.finance/` (project root). If the directory doesn't exist,
-create it with: `mkdir -p .finance/goals .finance/check-ins .finance/raw/statements`
+create it with: `mkdir -p .finance/goals .finance/raw/statements`
 
 ### Claude Desktop App
 User data is stored as **Artifacts** in the conversation or Project. When writing

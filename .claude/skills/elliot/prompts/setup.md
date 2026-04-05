@@ -7,7 +7,7 @@ statements to fill any gaps.
 
 Create the `.finance/` directory structure:
 ```
-mkdir -p .finance/goals .finance/check-ins .finance/raw/statements
+mkdir -p .finance/goals .finance/raw/statements
 ```
 
 Copy the templates to create the user's files:
